@@ -7,6 +7,6 @@ session = boto3.Session(
 s3 = session.client('s3')
 local_file_path = '/home/kafka/jagadish/Mall_Customers.csv'
 bucket_name = 'kafka-s3-connection-bucket'
-s3_object_key = 'Mall_Customers.csv'
+s3_object_key = 'zipcodes.json'
 s3.upload_file(local_file_path, bucket_name, s3_object_key)
 print("File uploaded to S3 successfully.")
