@@ -1,0 +1,2 @@
+id,creationDate,lastModifiedDate,name,description,identifier,externalId,refId,crmId,timeZoneId,state,customAttributes,contacts,fingerprints
+f5ed2bf1-3c04-4bde-9d91-1f4f1f6cde01,2022-08-19 09:15,,RandomCustomer_1,Random customer data 1,f9c34132-550a-43af-8d10-56dbdd74d41e,,,,UTC,ENABLE,"{'customAttribute': [{'name': 'EFGH', 'value': 'RandomValue1'}]}","{'contact': [{'id': 'd24939f7-35d1-4b06-b88e-8e5e0c46353a', 'emailId': 'RandomContact.1@test.com'}]}",

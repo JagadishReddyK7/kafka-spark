@@ -1,0 +1,2 @@
+id,creationDate,lastModifiedDate,name,description,identifier,externalId,refId,crmId,timeZoneId,state,customAttributes,contacts,fingerprints
+73258e3e-071e-4c1d-b27e-2dd19529b05d,2022-06-12 15:42,,RandomCustomer_2,Random customer data 2,c3b9dd17-4d87-43b2-9183-79bca987c10e,,,,UTC,ENABLE,"{'customAttribute': [{'name': 'IJKL', 'value': 'RandomValue2'}]}","{'contact': [{'id': '2c9a32e7-5da2-4a08-b2d3-8a8a954ef52d', 'emailId': 'RandomContact.2@test.com'}]}",

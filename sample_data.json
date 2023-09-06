@@ -1,0 +1,156 @@
+{
+    "customers": {
+       "count": 5,
+       "customer": [
+          {
+             "id": "f5ed2bf1-3c04-4bde-9d91-1f4f1f6cde01",
+             "creationDate": "2022-08-19 09:15",
+             "lastModifiedDate": "",
+             "name": "RandomCustomer_1",
+             "description": "Random customer data 1",
+             "identifier": "f9c34132-550a-43af-8d10-56dbdd74d41e",
+             "externalId": "",
+             "refId": "",
+             "crmId": "",
+             "timeZoneId": "UTC",
+             "state": "ENABLE",
+             "customAttributes": {
+                "customAttribute": [
+                   {
+                      "name": "EFGH",
+                      "value": "RandomValue1"
+                   }
+                ]
+             },
+             "contacts": {
+                "contact": [
+                   {
+                      "id": "d24939f7-35d1-4b06-b88e-8e5e0c46353a",
+                      "emailId": "RandomContact.1@test.com"
+                   }
+                ]
+             },
+             "fingerprints": null
+          },
+          {
+             "id": "73258e3e-071e-4c1d-b27e-2dd19529b05d",
+             "creationDate": "2022-06-12 15:42",
+             "lastModifiedDate": "",
+             "name": "RandomCustomer_2",
+             "description": "Random customer data 2",
+             "identifier": "c3b9dd17-4d87-43b2-9183-79bca987c10e",
+             "externalId": "",
+             "refId": "",
+             "crmId": "",
+             "timeZoneId": "UTC",
+             "state": "ENABLE",
+             "customAttributes": {
+                "customAttribute": [
+                   {
+                      "name": "IJKL",
+                      "value": "RandomValue2"
+                   }
+                ]
+             },
+             "contacts": {
+                "contact": [
+                   {
+                      "id": "2c9a32e7-5da2-4a08-b2d3-8a8a954ef52d",
+                      "emailId": "RandomContact.2@test.com"
+                   }
+                ]
+             },
+             "fingerprints": null
+          },
+          {
+             "id": "1e5d9a8f-61c4-4e38-8c1a-af3808409d8f",
+             "creationDate": "2021-12-05 08:20",
+             "lastModifiedDate": "",
+             "name": "RandomCustomer_3",
+             "description": "Random customer data 3",
+             "identifier": "a6b06750-3c3d-43c0-b8eb-6c2c26091329",
+             "externalId": "",
+             "refId": "",
+             "crmId": "",
+             "timeZoneId": "UTC",
+             "state": "ENABLE",
+             "customAttributes": {
+                "customAttribute": [
+                   {
+                      "name": "MNOP",
+                      "value": "RandomValue3"
+                   }
+                ]
+             },
+             "contacts": {
+                "contact": [
+                   {
+                      "id": "dd14e3f0-78dd-48b5-8b98-9c09d58ee96a",
+                      "emailId": "RandomContact.3@test.com"
+                   }
+                ]
+             },
+             "fingerprints": null
+          },
+          {
+             "id": "98a1276e-8661-4d08-9c3f-71268a46b2d5",
+             "creationDate": "2020-11-23 12:59",
+             "lastModifiedDate": "",
+             "name": "RandomCustomer_4",
+             "description": "Random customer data 4",
+             "identifier": "fa06d0a2-1d8a-4cc3-b62c-42387c4b6f6d",
+             "externalId": "",
+             "refId": "",
+             "crmId": "",
+             "timeZoneId": "UTC",
+             "state": "ENABLE",
+             "customAttributes": {
+                "customAttribute": [
+                   {
+                      "name": "QRST",
+                      "value": "RandomValue4"
+                   }
+                ]
+             },
+             "contacts": {
+                "contact": [
+                   {
+                      "id": "b69df8d3-97a0-4c63-890a-3e5c0c8665a0",
+                      "emailId": "RandomContact.4@test.com"
+                   }
+                ]
+             },
+             "fingerprints": null
+          },
+          {
+             "id": "23ef0674-50d9-4c28-b3ac-3c137c19ac9d",
+             "creationDate": "2019-08-17 06:30",
+             "lastModifiedDate": "",
+             "name": "RandomCustomer_5",
+             "description": "Random customer data 5",
+             "identifier": "b01c193a-40b7-4d4a-b055-eb01ca5e52ab",
+             "externalId": "",
+             "refId": "",
+             "crmId": "",
+             "timeZoneId": "UTC",
+             "state": "ENABLE",
+             "customAttributes": {
+                "customAttribute": [
+                   {
+                      "name": "UVWX",
+                      "value": "RandomValue5"
+                   }
+                ]
+             },
+             "contacts": {
+                "contact": [
+                   {
+                      "id": "f3b3b755-7c4e-4ce7-8ab2-7dd0c1b6bc8b",
+                      "emailId": "RandomContact.5@test.com"
+                   }
+                ]
+             },
+             "fingerprints": null
+          }]
+    }
+}

@@ -1,0 +1,2 @@
+id,creationDate,lastModifiedDate,name,description,identifier,externalId,refId,crmId,timeZoneId,state,customAttributes,contacts,fingerprints
+98a1276e-8661-4d08-9c3f-71268a46b2d5,2020-11-23 12:59,,RandomCustomer_4,Random customer data 4,fa06d0a2-1d8a-4cc3-b62c-42387c4b6f6d,,,,UTC,ENABLE,"{'customAttribute': [{'name': 'QRST', 'value': 'RandomValue4'}]}","{'contact': [{'id': 'b69df8d3-97a0-4c63-890a-3e5c0c8665a0', 'emailId': 'RandomContact.4@test.com'}]}",

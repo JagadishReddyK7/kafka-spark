@@ -1,8 +1,8 @@
 from pyspark.sql import SparkSession
+from generate_upload_csv import write_csv_files,upload_csv_files_to_s3
 import os
 import boto3
-import io
-import pickle
+import json
 
 session = boto3.Session(
     aws_access_key_id='AKIAZ7A2D7Q6BQDZDGYR',
@@ -14,10 +14,11 @@ os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages org.apache.spark:spark-streaming
 
 spark = SparkSession.builder.appName("kafka_with_spark").getOrCreate()
 df=spark.readStream.format("kafka").option("kafka.bootstrap.servers","localhost:9092").option("subscribe","mallCustomers").load()
-df_bytes=pickle.dumps(df)
 
-s3.Object('kafka-s3-connection-bucket','stream.txt').upload_fileobj(io.BytesIO(df_bytes))
+json_array=df.toJSON().collect()
+json_str=json.dumps(json_array)
+write_csv_files(json_str,'csv_files')
 
-query = df.writeStream.outputMode("append").format("console").start()
-
-query.awaitTermination()
+local_directory='csv_files'
+bucket_name = 'kafka-s3-connection-bucket'
+upload_csv_files_to_s3(local_directory,bucket_name,'sample_csv1')
