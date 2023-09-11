@@ -1,2 +1,0 @@
-id,creationDate,lastModifiedDate,name,description,identifier,externalId,refId,crmId,timeZoneId,state,customAttributes,contacts,fingerprints
-1e5d9a8f-61c4-4e38-8c1a-af3808409d8f,2021-12-05 08:20,,RandomCustomer_3,Random customer data 3,a6b06750-3c3d-43c0-b8eb-6c2c26091329,,,,UTC,ENABLE,"{'customAttribute': [{'name': 'MNOP', 'value': 'RandomValue3'}]}","{'contact': [{'id': 'dd14e3f0-78dd-48b5-8b98-9c09d58ee96a', 'emailId': 'RandomContact.3@test.com'}]}",

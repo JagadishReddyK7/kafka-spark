@@ -1,2 +1,0 @@
-id,creationDate,lastModifiedDate,name,description,identifier,externalId,refId,crmId,timeZoneId,state,customAttributes,contacts,fingerprints
-23ef0674-50d9-4c28-b3ac-3c137c19ac9d,2019-08-17 06:30,,RandomCustomer_5,Random customer data 5,b01c193a-40b7-4d4a-b055-eb01ca5e52ab,,,,UTC,ENABLE,"{'customAttribute': [{'name': 'UVWX', 'value': 'RandomValue5'}]}","{'contact': [{'id': 'f3b3b755-7c4e-4ce7-8ab2-7dd0c1b6bc8b', 'emailId': 'RandomContact.5@test.com'}]}",

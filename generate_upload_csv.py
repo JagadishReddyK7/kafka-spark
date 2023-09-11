@@ -6,41 +6,41 @@ from datetime import datetime
 
 def write_csv_files(json_data, output_directory):
     data = json.loads(json_data)
+    print(data)
 
     csv_writers = {}
 
-    customers=data['customers']['customer']
-
-    for customer in customers:
-        creation_date_str = customer['creationDate']
-        creation_date = datetime.strptime(creation_date_str, '%Y-%m-%d %H:%M')
+    for record in data:
+        transaction=json.loads(record)
+        creation_date_str = transaction['Timestamp']
+        creation_date = datetime.strptime(creation_date_str, '%Y-%m-%d %H:%M:%S')
         
         month_year = creation_date.strftime('%Y-%m')
 
         if month_year not in csv_writers:
             filename = f"{output_directory}/{month_year}.csv"
             with open(filename, mode='w', newline='') as csv_file:
-                fieldnames = customer.keys()
+                fieldnames = transaction.keys()
                 writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
                 writer.writeheader()
-                writer.writerow(customer)
+                writer.writerow(transaction)
                 csv_writers[month_year] = writer
             csv_file.close()
 
         else:
             filename = f"{output_directory}/{month_year}.csv"
             with open(filename, mode='a', newline='') as csv_file:
-                fieldnames = customer.keys()
+                fieldnames = transaction.keys()
                 writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-                writer.writerow(customer)
+                writer.writerow(transaction)
             csv_file.close()
 
 
 def upload_csv_files_to_s3(directory_path, bucket_name, s3_prefix='datewise_csv'):
 
     session = boto3.Session(
-    aws_access_key_id='AKIAZ7A2D7Q6BQDZDGYR',
-    aws_secret_access_key='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')
+    aws_access_key_id='AKIA3JCX6CPUE24DUXOA',
+    aws_secret_access_key='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')
     s3 = session.client('s3')
 
     files = [f for f in os.listdir(directory_path) if f.endswith('.csv')]
