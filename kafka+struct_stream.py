@@ -4,9 +4,8 @@ from pyspark.sql.types import StructType,StructField,StringType
 import os
 import json
 import boto3
-from delta.tables import *
 
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages io.delta:delta-core_2.12:2.4.0,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.2.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0 pyspark-shell'
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages org.apache.spark:spark-streaming-kafka-0-10_2.12:3.2.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0 pyspark-shell'
 
 checkpoint_location='s3a://datalake-store-poc/raw/checkpoints'
 
@@ -15,8 +14,6 @@ spark = SparkSession.builder.config('spark.master','local').\
         config('spark.jars.packages','org.apache.hadoop:hadoop-aws:3.3.5,org.apache.hadoop:hadoop-common:3.3.5').\
         config('spark.hadoop.fs.s3a.aws.credentials.provider', 'org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider').\
         config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem").\
-        config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension"). \
-        config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog").\
         getOrCreate()
 
 sc=spark.sparkContext

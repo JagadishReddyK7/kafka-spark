@@ -1,23 +1,17 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import from_json
-from pyspark.sql.types import StructType,StructField,StringType
+from pyspark.sql.functions import udf,from_json
+from pyspark.sql.types import StringType,StructField,StructType
+import random
 import os
 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages org.apache.spark:spark-streaming-kafka-0-10_2.12:3.2.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0 pyspark-shell'
+csv_output_path='fraud_csv/'
 
-checkpoint_location='checkpoint_files'
+def assign_random_confidence():
+    return str(random.randint(0, 100))
+random_confidence_udf = udf(assign_random_confidence, StringType())
 
-spark = SparkSession.builder.config('spark.master','local').\
-        config("spark.sql.streaming.checkpointLocation", checkpoint_location).\
-        config('spark.jars.packages','org.apache.hadoop:hadoop-aws:3.0.0,org.apache.hadoop:hadoop-common:3.0.0').\
-        config('spark.hadoop.fs.s3a.aws.credentials.provider', 'org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider').\
-        getOrCreate()
-
-sc=spark.sparkContext
-
-sc._jsc.hadoopConfiguration().set("fs.s3a.access.key", "AKIA3JCX6CPUE24DUXOA")
-sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key", "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")
-# sc._jsc.hadoopConfiguration().set("fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
+spark = SparkSession.builder.appName("StreamFraudDetection").getOrCreate()
 
 json_schema = StructType([StructField("TransactionID", StringType(), True),
                           StructField("Timestamp", StringType(), True),
@@ -53,20 +47,14 @@ json_schema = StructType([StructField("TransactionID", StringType(), True),
                           StructField("PromoCode", StringType(), True),                         
                          ])
 
-df=spark.readStream.format("kafka").option("kafka.bootstrap.servers","localhost:9092").option("subscribe","streamingData_api").load()
-
-json_df = df.selectExpr("CAST(value AS STRING)") \
-    .select(from_json("value", json_schema).alias("data")) \
+df = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "localhost:9092").option("subscribe", "streamingData_api").load()
+df = df.selectExpr("CAST(value AS STRING)").select(from_json("value", json_schema).alias("data")) \
     .select("data.*")
 
-# output_directory="s3a://datalake-store-poc/"
-output_directory="json_files"
+df=df.withColumn("Confidence",random_confidence_udf())
+df=df.withColumn("IsFraud",(df["Confidence"]>50).cast("string"))
+df.printSchema()
 
-json_df.printSchema()
-
-
-query = json_df.writeStream.outputMode("append").format("json").option("path",output_directory).start()
-
+query=df.writeStream.format('csv').outputMode('append').option('path',csv_output_path).option('checkpointLocation','checkpoint_files').start()
 query.awaitTermination()
-
 spark.stop()
