@@ -1,8 +1,8 @@
 import boto3
 
 session = boto3.Session(
-    aws_access_key_id='AKIA3JCX6CPUE24DUXOA',
-    aws_secret_access_key='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'
+    aws_access_key_id='',
+    aws_secret_access_key=''
 )
 s3 = session.client('s3')
 local_file_path = '/home/kafka/jagadish/sample_data1.json'
