@@ -5,8 +5,8 @@ from generate_upload_csv import file_already_uploaded,mark_file_as_uploaded
 
 def upload(directory_path,s3_prefix,file_type):
     session = boto3.Session(
-    aws_access_key_id='AKIAZ7A2D7Q6BQDZDGYR',
-    aws_secret_access_key='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')
+    aws_access_key_id='',
+    aws_secret_access_key='')
     s3 = session.client('s3')
 
     bucket_name='s3-processed-data-for-snowflake'
