@@ -49,8 +49,8 @@ data_schema = StructType([
 
 sc=spark.sparkContext
 
-sc._jsc.hadoopConfiguration().set("fs.s3a.access.key", "AKIAZ7A2D7Q6BQDZDGYR")
-sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key", "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")
+sc._jsc.hadoopConfiguration().set("fs.s3a.access.key", "")
+sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key", "")
 
 df = spark.read.option('multiline','true').json('s3a://raw-transaction-data-faked/batch_ingestion/*', schema=data_schema)
 df = df.withColumn("date", split(col("Timestamp.$date"), "T")[0])
