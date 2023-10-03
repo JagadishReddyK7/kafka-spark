@@ -5,8 +5,8 @@ import uuid
 def generate_unique_id():
     return str(uuid.uuid4())
 
-aws_access_key_id = 'AKIAZ7A2D7Q6BQDZDGYR'
-aws_secret_access_key = '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'
+aws_access_key_id = ''
+aws_secret_access_key = ''
 s3_bucket_name = 'kafka-s3-connection-bucket'
 
 conf = {
