@@ -19,8 +19,8 @@ spark = SparkSession.builder.config('spark.master','local').\
 sc=spark.sparkContext
 
 sc._jsc.hadoopConfiguration().set("fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
-sc._jsc.hadoopConfiguration().set("fs.s3a.access.key", "AKIA3JCX6CPUE24DUXOA")
-sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key", "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")
+sc._jsc.hadoopConfiguration().set("fs.s3a.access.key", "")
+sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key", "")
 
 
 json_schema = StructType([StructField("TransactionID", StringType(), True),
